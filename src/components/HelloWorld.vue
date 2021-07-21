@@ -13,10 +13,12 @@ import { Button } from 'ant-design-vue';
   props: {
     msg: String,
   },
+  created() {
+    console.log(process.env);
+  },
 })
-export default class HelloWorld extends Vue {
-  msg!: string
-}
+
+export default class HelloWorld extends Vue {}
 </script>
 
 <style scoped lang="less">
