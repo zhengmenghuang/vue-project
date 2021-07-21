@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "serve:sim": "vue-cli-service serve --mode sim",
+    "serve:pre": "vue-cli-service serve --mode pre",
     "serve:prod": "vue-cli-service serve --mode production",
-    "build:sim": "vue-cli-service build --mode sim",
+    "build:pre": "vue-cli-service build --mode pre",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
