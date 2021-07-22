@@ -1,10 +1,11 @@
 <template>
-  <a-button type="primary">{{msg}}</a-button>
+  <a-button type="primary" @click="onClick">{{info}}</a-button>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import { Button } from 'ant-design-vue';
+import TestService from '@/api/test';
 
 @Options({
   components: {
@@ -13,9 +14,17 @@ import { Button } from 'ant-design-vue';
   props: {
     msg: String,
   },
-  created() {
-    console.log(process.env);
+  data() {
+    return {
+      info: this.msg,
+    };
   },
+  methods: {
+    async onClick() {
+      this.info = await TestService.test();
+    },
+  },
+
 })
 
 export default class HelloWorld extends Vue {}
