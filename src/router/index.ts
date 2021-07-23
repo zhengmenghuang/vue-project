@@ -5,7 +5,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
-    component: Home, // 组件懒加载 () => import('../views/Home.vue')
+    component: Home, // 组件懒加载 () => import('@/views/Home.vue')
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: () => import('@/views/test.vue'),
   },
 ];
 

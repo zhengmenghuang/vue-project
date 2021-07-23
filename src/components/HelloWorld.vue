@@ -1,5 +1,6 @@
 <template>
   <a-button type="primary" @click="onClick">{{info}}</a-button>
+  <a-button type="primary" @click="goNext">下一页</a-button>
 </template>
 
 <script lang="ts">
@@ -22,6 +23,9 @@ import TestService from '@/api/test';
   methods: {
     async onClick() {
       this.info = await TestService.test();
+    },
+    goNext() {
+      this.$router.push('/test');
     },
   },
 
