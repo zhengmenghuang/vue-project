@@ -24,7 +24,7 @@ import { AxiosResponse } from 'axios';
 })
 
 export default class HelloWorld extends Vue {
-  info!: AxiosResponse;
+  info!: AxiosResponse<string>;
 
   // 获取api消息
   async getInfo(): Promise<void> {
