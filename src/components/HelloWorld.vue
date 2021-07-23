@@ -1,12 +1,13 @@
 <template>
-  <a-button type="primary" @click="onClick">{{info}}</a-button>
-  <a-button type="primary" @click="goNext">下一页</a-button>
+  <a-button type="primary" @click="getInfo">{{info}}</a-button>
+  <a-button type="primary" @click="goNextPage">下一页</a-button>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import { Button } from 'ant-design-vue';
 import TestService from '@/api/test';
+import { AxiosResponse } from 'axios';
 
 @Options({
   components: {
@@ -20,18 +21,21 @@ import TestService from '@/api/test';
       info: this.msg,
     };
   },
-  methods: {
-    async onClick() {
-      this.info = await TestService.test();
-    },
-    goNext() {
-      this.$router.push('/test');
-    },
-  },
-
 })
 
-export default class HelloWorld extends Vue {}
+export default class HelloWorld extends Vue {
+  info!: AxiosResponse;
+
+  // 获取api消息
+  async getInfo(): Promise<void> {
+    this.info = await TestService.test();
+  }
+
+  // 去下一页
+  goNextPage(): void {
+    this.$router.push('/test');
+  }
+}
 </script>
 
 <style scoped lang="less">
