@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { message } from 'ant-design-vue';
 
 // 在这里挂载 axios 的请求拦截
 axios.defaults.baseURL = process.env.VUE_APP_API_URL;
@@ -13,6 +14,7 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(response => {
   // 2xx 范围内的状态码都会触发该函数。
   // 对响应数据做点什么
+  message.info('请求成功');
   console.log(16, response.data);
   return response.data;
 }, error => {
@@ -28,6 +30,6 @@ axios.interceptors.response.use(response => {
     // 发送请求时出了点问题
     console.log('Error', error.message);
   }
-  console.log(`31 请求出错：${error.toString()}`);
+  message.info(error.toString());
   return Promise.reject(error);
 });
